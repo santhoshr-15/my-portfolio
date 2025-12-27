@@ -1,0 +1,146 @@
+---
+import TypingText from './TypingText.jsx';
+---
+
+<section class="w-full max-w-6xl mx-auto px-4 py-24 relative z-10 border-t border-white/10 mt-10">
+    
+    {/* HEADER */}
+    <div class="text-center mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-indigo-500 uppercase mb-2">Identity Verified</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-white">
+            Who is the <span class="text-indigo-400">Architect?</span>
+        </h3>
+    </div>
+
+    {/* CONTENT */}
+    <div class="max-w-5xl mx-auto">
+        
+        {/* PROFILE HEADER (Image + Typewriter) */}
+        <div class="grid md:grid-cols-3 gap-10 mb-16 items-start">
+            
+            {/* 1. YOUR IMAGE */}
+            <div class="md:col-span-1 relative group max-w-xs mx-auto md:mx-0">
+                <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition duration-500"></div>
+                <div class="aspect-square rounded-3xl bg-[#111] border border-white/10 relative z-10 flex items-center justify-center overflow-hidden shadow-2xl">
+                    <img 
+                        src="/profile.jpg" 
+                        alt="My Profile" 
+                        class="w-full h-full object-cover hover:scale-105 transition duration-500" 
+                    />
+                </div>
+            </div>
+
+            {/* 2. THE TYPEWRITER TEXT */}
+            <div class="md:col-span-2 flex flex-col justify-center">
+                <div class="min-h-[100px] flex flex-col justify-center mb-4">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                        I am a <br/>
+                        <span class="block mt-1">
+                            <TypingText client:visible />
+                        </span>
+                    </h1>
+                </div>
+                
+                <p class="text-lg text-gray-300 leading-relaxed max-w-2xl">
+                    I don't just write code; I secure it. As a cybersecurity student, I bridge the gap between 
+                    <span class="text-white font-bold"> offensive security</span> (breaking things) and 
+                    <span class="text-white font-bold"> full-stack engineering</span> (building things).
+                </p>
+                
+                <div class="flex gap-8 mt-6 border-t border-white/10 pt-6">
+                    <div>
+                        <span class="block text-3xl font-bold text-white mb-1">03+</span>
+                        <span class="text-xs text-gray-500 font-bold tracking-wider uppercase">Years Coding</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold text-white mb-1">12+</span>
+                        <span class="text-xs text-gray-500 font-bold tracking-wider uppercase">Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* 3. SPLIT CONTENT */}
+        <div class="grid md:grid-cols-2 gap-12 relative">
+            
+            <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-indigo-500 to-transparent -translate-x-1/2 opacity-60"></div>
+
+            {/* LEFT: JOURNEY */}
+            <div>
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="w-6 h-1 bg-indigo-500 rounded-full"></span> Journey
+                </h2>
+                <div class="space-y-10 border-l border-white/10 pl-6 ml-3 relative">
+                    <div class="relative group">
+                        <span class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-indigo-500 border-[3px] border-[#0a0a0a] shadow-[0_0_15px_rgba(99,102,241,0.5)]"></span>
+                        <span class="text-[10px] font-bold text-indigo-400 mb-1 block tracking-widest">PRESENT</span>
+                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition">Freelance Security Developer</h3>
+                        <p class="text-gray-400 mt-1 text-sm leading-relaxed">Building custom security tools and high-performance React applications for clients.</p>
+                    </div>
+                    <div class="relative group">
+                        <span class="absolute -left-[31px] top-1 h-4 w-4 rounded-full bg-gray-700 border-[3px] border-[#0a0a0a]"></span>
+                        <span class="text-[10px] font-bold text-gray-500 mb-1 block tracking-widest">2023 - 2024</span>
+                        <h3 class="text-lg font-bold text-white">Cybersecurity Student</h3>
+                        <p class="text-gray-400 mt-1 text-sm leading-relaxed">Specializing in Network Security, Penetration Testing (Kali Linux), and Python scripting.</p>
+                    </div>
+                </div>
+            </div>
+
+            {/* RIGHT: SKILLS */}
+            <div>
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                    <span class="w-6 h-1 bg-purple-500 rounded-full"></span> Skills & Arsenal
+                </h2>
+                
+                <div class="grid grid-cols-1 gap-3">
+                    {/* OFFENSIVE */}
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-[#111] to-[#161616] border border-red-500/10 hover:border-red-500/30 transition group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-1.5 rounded-lg bg-red-500/10 text-red-400 text-lg">⚔️</div>
+                            <h4 class="font-bold text-white text-base">Offensive Ops</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {["Penetration Testing", "Kali Linux", "Burp Suite", "Metasploit", "OWASP Top 10"].map(tag => (
+                                <span class="px-2 py-0.5 rounded bg-red-500/5 text-red-300 text-[10px] font-bold border border-red-500/10 hover:bg-red-500/10 transition">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* DEFENSIVE */}
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-[#111] to-[#161616] border border-blue-500/10 hover:border-blue-500/30 transition group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 text-lg">🛡️</div>
+                            <h4 class="font-bold text-white text-base">Defensive Ops</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {["SOC Analysis", "SIEM (Splunk)", "Incident Response", "Zero Trust", "Firewall Config"].map(tag => (
+                                <span class="px-2 py-0.5 rounded bg-blue-500/5 text-blue-300 text-[10px] font-bold border border-blue-500/10 hover:bg-blue-500/10 transition">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* DEV */}
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-[#111] to-[#161616] border border-purple-500/10 hover:border-purple-500/30 transition group">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-1.5 rounded-lg bg-purple-500/10 text-purple-400 text-lg">💻</div>
+                            <h4 class="font-bold text-white text-base">Full Stack Dev</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            {["React & Astro", "Rust (WASM)", "Python", "Node.js", "Docker"].map(tag => (
+                                <span class="px-2 py-0.5 rounded bg-purple-500/5 text-purple-300 text-[10px] font-bold border border-purple-500/10 hover:bg-purple-500/10 transition">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

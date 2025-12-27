@@ -1,0 +1,86 @@
+<section class="w-full max-w-7xl mx-auto px-4 py-32 relative z-10 border-t border-white/10 mt-20" id="contact">
+    
+    {/* 1. HEADER */}
+    <div class="text-center mb-20">
+        <h2 class="text-sm font-bold tracking-widest text-indigo-500 uppercase mb-3">Signal Uplink</h2>
+        <h1 class="text-4xl md:text-5xl font-bold text-white">
+            Establish <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Connection</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mt-4">
+            Have a security project in mind or want to discuss architecture? Send an encrypted signal.
+        </p>
+    </div>
+
+    {/* 2. CONTACT GRID */}
+    <div class="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/10 bg-[#111] shadow-2xl">
+        
+        {/* Left: Info Side */}
+        <div class="p-10 md:p-12 flex flex-col justify-between bg-gradient-to-br from-indigo-900/40 to-purple-900/40 relative overflow-hidden">
+            
+            {/* Background Noise */}
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+            
+            <div class="relative z-10">
+                <h3 class="text-3xl font-bold text-white mb-4">Contact Info</h3>
+                <p class="text-indigo-200 text-lg leading-relaxed">
+                    I am currently available for freelance work and security audits.
+                </p>
+            </div>
+
+            <div class="space-y-6 relative z-10 mt-10">
+                <div class="flex items-center gap-4 text-white group">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl group-hover:bg-indigo-500 transition-colors">📧</div>
+                    <div>
+                        <p class="text-xs text-indigo-300 font-bold uppercase">Email Frequency</p>
+                        <p class="font-medium">hello@cyberportfolio.com</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-white group">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl group-hover:bg-indigo-500 transition-colors">📍</div>
+                    <div>
+                        <p class="text-xs text-indigo-300 font-bold uppercase">Base of Operations</p>
+                        <p class="font-medium">Chennai, India</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 text-white group">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl group-hover:bg-indigo-500 transition-colors">🔗</div>
+                    <div>
+                        <p class="text-xs text-indigo-300 font-bold uppercase">Secure Channels</p>
+                        <p class="font-medium">LinkedIn / GitHub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* Right: The Form */}
+        <div class="p-10 md:p-12 bg-[#0a0a0a]">
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Identify Yourself</label>
+                    <input type="text" placeholder="Name or Handle" class="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-indigo-500 focus:bg-[#1f1f1f] transition-all" />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Return Address (Email)</label>
+                    <input type="email" placeholder="you@example.com" class="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-indigo-500 focus:bg-[#1f1f1f] transition-all" />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Transmission Message</label>
+                    <textarea rows="4" placeholder="Enter your message..." class="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-indigo-500 focus:bg-[#1f1f1f] transition-all"></textarea>
+                </div>
+
+                <button class="w-full py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] transform hover:-translate-y-1">
+                    Send Transmission
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    {/* Footer Copyright */}
+    <div class="text-center mt-20 text-gray-600 text-sm">
+        <p>© 2025 Cyber Architect. System Secure.</p>
+    </div>
+
+</section>
