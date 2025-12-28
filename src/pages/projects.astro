@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -45,36 +44,52 @@ const projects = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {projects.map((p, index) => (
-        <div class="group relative rounded-3xl bg-[#111] border border-white/10 overflow-hidden hover:border-white/20 transition-all hover:-translate-y-2 duration-300">
+      {projects.map((p) => (
+        // CARD: Stable, Dark, Modern
+        <div class="group relative rounded-3xl bg-[#0a0a0a] border border-white/10 overflow-hidden hover:border-white/30 transition-all duration-500">
             
-            {/* Colorful Glow Effect */}
-            <div class={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${p.color}`}></div>
-            <div class={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${p.color} opacity-10 blur-[80px] group-hover:opacity-20 transition duration-500`}></div>
+            {/* Texture */}
+            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+            
+            {/* Top Line */}
+            <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${p.color} opacity-50 group-hover:opacity-100 transition duration-500`}></div>
+            
+            {/* Glow */}
+            <div class={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${p.color} opacity-10 blur-[80px] group-hover:opacity-20 transition duration-500 pointer-events-none`}></div>
 
-            <div class="p-8 relative z-10">
-                <div class="flex justify-between items-start mb-6">
-                    <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center text-3xl shadow-lg`}>
-                        {p.icon}
+            <div class="p-8 relative z-10 h-full flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-6">
+                        <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center text-3xl shadow-lg border border-white/10`}>
+                            {p.icon}
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 border border-white/5 font-mono">
+                            v1.0.0
+                        </span>
                     </div>
-                    <span class="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 border border-white/5 group-hover:bg-white/10">
-                        2025
-                    </span>
+
+                    <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                        {p.title}
+                    </h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed text-lg">
+                        {p.desc}
+                    </p>
                 </div>
 
-                <h3 class="text-3xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                    {p.title}
-                </h3>
-                <p class="text-gray-400 mb-8 leading-relaxed text-lg">
-                    {p.desc}
-                </p>
-
-                <div class="flex gap-2 flex-wrap">
-                    {p.tags.map(tag => (
-                        <span class="px-3 py-1 rounded-md bg-[#1a1a1a] text-gray-300 text-sm font-medium border border-white/5">
-                            #{tag}
-                        </span>
-                    ))}
+                <div class="flex justify-between items-center">
+                    <div class="flex gap-2 flex-wrap">
+                        {p.tags.map(tag => (
+                            <span class="px-3 py-1 rounded-lg bg-white/5 text-gray-300 text-xs font-mono border border-white/5 group-hover:border-white/10">
+                                #{tag}
+                            </span>
+                        ))}
+                    </div>
+                     {/* Hover Arrow */}
+                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors cursor-pointer">
+                        <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>

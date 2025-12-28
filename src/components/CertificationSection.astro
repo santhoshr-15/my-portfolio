@@ -6,7 +6,7 @@ const certs = [
     date: "2024",
     id: "ECC-123456789",
     color: "border-red-500",
-    glow: "shadow-[0_0_20px_rgba(239,68,68,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(239,68,68,0.15)]", // Softer glow
     icon: "🛡️"
   },
   {
@@ -15,7 +15,7 @@ const certs = [
     date: "2023",
     id: "COMP-987654321",
     color: "border-blue-500",
-    glow: "shadow-[0_0_20px_rgba(59,130,246,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(59,130,246,0.15)]",
     icon: "🔐"
   },
   {
@@ -24,7 +24,7 @@ const certs = [
     date: "2023",
     id: "GOOG-555666777",
     color: "border-yellow-500",
-    glow: "shadow-[0_0_20px_rgba(234,179,8,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(234,179,8,0.15)]",
     icon: "📜"
   },
   {
@@ -33,7 +33,7 @@ const certs = [
     date: "2025",
     id: "AWS-11223344",
     color: "border-orange-500",
-    glow: "shadow-[0_0_20px_rgba(249,115,22,0.2)]",
+    glow: "shadow-[0_0_30px_rgba(249,115,22,0.15)]",
     icon: "☁️"
   }
 ];
@@ -55,15 +55,17 @@ const certs = [
     {/* 2. CERTIFICATION GRID */}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
       {certs.map((cert) => (
-        <div class={`relative p-6 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/30 transition-all duration-300 group hover:-translate-y-1 ${cert.glow}`}>
+        // REMOVED: hover:-translate-y-1 (Now it is stable)
+        // ADDED: hover:border-white/30 and transition-all duration-500 (Smooth Glow)
+        <div class={`relative p-6 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-white/40 transition-all duration-500 group ${cert.glow}`}>
             
             {/* Top Badge Decoration */}
-            <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-[#111] border border-white/20 flex items-center justify-center shadow-xl">
+            <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-[#111] border border-white/20 flex items-center justify-center shadow-xl z-10">
                 <span class="text-green-500 text-sm">✓</span>
             </div>
 
             {/* Content */}
-            <div class="flex flex-col h-full justify-between">
+            <div class="flex flex-col h-full justify-between relative z-0">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-xl">

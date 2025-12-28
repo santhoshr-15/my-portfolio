@@ -5,13 +5,10 @@ import AboutSection from '../components/AboutSection.astro';
 import ProjectSection from '../components/ProjectSection.astro';
 import CertificationSection from '../components/CertificationSection.astro';
 import ContactSection from '../components/ContactSection.astro';
-
-// Import the NEW BlurText Animation
-import { BlurText } from '../components/AnimatedSection.jsx';
-import ScrollReveal from '../components/ScrollReveal.jsx'; // Keep this for sections
+import ScrollReveal from '../components/ScrollReveal.jsx'; 
 ---
 
-<Layout title="Home | Cyber Portfolio">
+<Layout title="Home | Santhosh Portfolio">
 	<main class="w-full min-h-screen flex flex-col items-center justify-start p-4 relative overflow-hidden scroll-smooth">
 		
 		{/* Background Ambience */}
@@ -20,21 +17,23 @@ import ScrollReveal from '../components/ScrollReveal.jsx'; // Keep this for sect
 			<div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-indigo-600/10 rounded-full blur-[100px] animate-pulse-slow"></div>
 		</div>
 
-		{/* 1. HERO TITLE - Cinematic Blur Effect */}
+		{/* 1. HERO TITLE */}
 		<div class="relative z-10 text-center mb-8 max-w-4xl mx-auto mt-8">
-			<div class="inline-block px-3 py-1 mb-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            
+            {/* NAME BADGE (With margin bottom to prevent smashing) */}
+			<div class="inline-block px-4 py-2 mb-6 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
 				<span class="text-[10px] font-bold tracking-[0.2em] text-indigo-300 uppercase">
-					System Online v2.5
+					Santhosh // Cyber Portfolio
 				</span>
 			</div>
             
-            {/* THE NEW ANIMATION IS HERE */}
-            <div class="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-tight drop-shadow-2xl">
-                <BlurText client:load text="Designing the Future." />
-            </div>
+            {/* TITLE (Sharp, No Blur) */}
+            <h1 class="text-4xl md:text-7xl font-extrabold text-white tracking-tight leading-tight drop-shadow-2xl">
+                Designing the <br/> Future.
+            </h1>
 		</div>
 		
-		{/* 2. DASHBOARD (Already has Stagger built-in now) */}
+		{/* 2. DASHBOARD */}
 		<Dashboard client:load />
 
 		{/* 3. ABOUT */}

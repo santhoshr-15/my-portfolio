@@ -14,10 +14,11 @@ const BentoItem = ({ children, className, delay = 0 }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: delay }}
-      whileHover={{ scale: 1.02, rotate: 0.5 }} // The "Interactive" pop effect
-      whileTap={{ scale: 0.98 }}
+      // REMOVED whileHover (No Shake, No Zoom)
+      // REMOVED whileTap
       className={cn(
-        "relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-colors hover:bg-white/10 hover:border-white/20 shadow-2xl",
+        // Base classes: Rounded, Border, Dark Background
+        "relative overflow-hidden rounded-3xl border border-white/10 bg-[#0f0f0f] p-6 transition-all duration-500",
         className
       )}
     >
