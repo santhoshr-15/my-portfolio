@@ -58,7 +58,7 @@ const Dashboard = () => {
 
       {/* 2. GITHUB ACTIVITY (Green Glow) */}
       <StaggerItem className="md:col-span-2 md:row-span-1">
-          <a href="https://github.com/YOUR_NEW_USERNAME" target="_blank" rel="noopener noreferrer" className="block h-full w-full">
+          <a href="https://github.com/santhoshr-15" target="_blank" rel="noopener noreferrer" className="block h-full w-full">
             <BentoItem className="h-full bg-[#0f0f0f] border-white/10 relative overflow-hidden group hover:border-green-500/50 transition-colors duration-500 p-5 flex flex-col justify-between cursor-pointer">
                
                {/* GLOW EFFECT */}

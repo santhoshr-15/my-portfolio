@@ -1,34 +1,5 @@
 ---
-const projects = [
-  {
-    title: "Security Scanner AI",
-    desc: "A Python-based vulnerability scanner using Deep Learning to detect 0-day threats.",
-    tags: ["Python", "TensorFlow", "CyberSec"],
-    color: "from-purple-600 to-blue-600",
-    icon: "🛡️"
-  },
-  {
-    title: "Zero Trust Auth",
-    desc: "Implemented OIDC and secure authentication flows in Rust. Ensures no user is trusted by default.",
-    tags: ["Rust", "WASM", "Auth0"],
-    color: "from-orange-500 to-red-600",
-    icon: "🔒"
-  },
-  {
-    title: "Phishing Hunter",
-    desc: "Real-time browser extension that analyzes URL patterns to block phishing sites instantly.",
-    tags: ["JavaScript", "Manifest V3", "API"],
-    color: "from-emerald-500 to-green-600",
-    icon: "🎣"
-  },
-  {
-    title: "Encrypted Chat",
-    desc: "End-to-End encrypted messaging platform using Socket.io and AES-256 encryption.",
-    tags: ["Node.js", "React", "Socket.io"],
-    color: "from-pink-500 to-rose-600",
-    icon: "💬"
-  }
-];
+import ProjectGrid from './ProjectGrid.jsx';
 ---
 
 <section class="w-full max-w-7xl mx-auto px-4 py-32 relative z-10 border-t border-white/10 mt-20">
@@ -44,64 +15,8 @@ const projects = [
         </p>
     </div>
 
-    {/* 2. THE PROJECTS GRID */}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-      {projects.map((p) => (
-        // CARD CONTAINER: Stable (No Translate), Darker Background, Subtle Border
-        <div class="group relative rounded-3xl bg-[#0a0a0a] border border-white/10 overflow-hidden hover:border-white/30 transition-all duration-500">
-            
-            {/* Background Noise Texture (Premium Feel) */}
-            <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
-            
-            {/* Top Gradient Line */}
-            <div class={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${p.color} opacity-50 group-hover:opacity-100 transition duration-500`}></div>
-            
-            {/* Ambient Corner Glow */}
-            <div class={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${p.color} opacity-5 blur-[80px] group-hover:opacity-20 transition duration-500 pointer-events-none`}></div>
+    {/* 2. THE ANIMATED GRID */}
+    {/* This loads the ProjectGrid.jsx you created, enabling the Criss-Cross animation */}
+    <ProjectGrid client:visible />
 
-            <div class="p-8 relative z-10 h-full flex flex-col justify-between">
-                
-                {/* Header: Icon & Year */}
-                <div>
-                    <div class="flex justify-between items-start mb-6">
-                        <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${p.color} flex items-center justify-center text-3xl shadow-lg border border-white/10`}>
-                            {p.icon}
-                        </div>
-                        <div class="flex items-center gap-2">
-                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-gray-500 font-bold border border-white/5 uppercase tracking-wider">
-                                2025
-                            </span>
-                        </div>
-                    </div>
-
-                    <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors">
-                        {p.title}
-                    </h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed text-base">
-                        {p.desc}
-                    </p>
-                </div>
-
-                {/* Footer: Tags & Arrow */}
-                <div class="flex justify-between items-end">
-                    <div class="flex gap-2 flex-wrap">
-                        {p.tags.map(tag => (
-                            <span class="px-3 py-1 rounded-lg bg-white/5 text-gray-300 text-xs font-mono border border-white/5 group-hover:border-white/10 transition">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                    
-                    {/* Hover Arrow */}
-                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/20 transition-colors cursor-pointer">
-                        <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-      ))}
-    </div>
 </section>
