@@ -1,29 +1,53 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import TypingText from '../components/TypingText.jsx'; // Make sure this path is correct
 ---
 
 <Layout title="About | Cyber Portfolio">
   <div class="max-w-6xl mx-auto px-6 pt-24 pb-32">
     
-    {/* Header Section */}
-    <div class="grid md:grid-cols-3 gap-12 mb-20 items-center animate-fade-in-up">
+    {/* 1. PAGE HEADER */}
+    <div class="text-center mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-indigo-500 uppercase mb-2">Identity Verified</h2>
+        <h3 class="text-3xl md:text-4xl font-bold text-white">
+            Who is the <span class="text-indigo-400">Architect?</span>
+        </h3>
+    </div>
+
+    {/* 2. PROFILE SECTION */}
+    <div class="grid md:grid-cols-3 gap-12 mb-20 items-start">
+        
+        {/* Left: Image */}
         <div class="md:col-span-1 relative group">
             <div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition duration-500"></div>
-            <div class="aspect-square rounded-3xl bg-[#111] border border-white/10 relative z-10 flex items-center justify-center overflow-hidden">
-                {/* Replace this emoji with your <img> tag later */}
-                <span class="text-8xl filter drop-shadow-2xl">👨‍💻</span>
+            <div class="aspect-square rounded-3xl bg-[#111] border border-white/10 relative z-10 flex items-center justify-center overflow-hidden shadow-2xl">
+                {/* YOUR PHOTO */}
+                <img 
+                    src="/profile.jpg" 
+                    alt="Santhosh" 
+                    class="w-full h-full object-cover hover:scale-105 transition duration-500" 
+                />
             </div>
         </div>
-        <div class="md:col-span-2">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-                Cyber <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Architect</span>.
-            </h1>
+
+        {/* Right: Bio & Typewriter */}
+        <div class="md:col-span-2 flex flex-col justify-center">
+            <div class="min-h-[100px] flex flex-col justify-center mb-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight">
+                    I am a <br/>
+                    <span class="block mt-1">
+                        <TypingText client:visible />
+                    </span>
+                </h1>
+            </div>
+            
             <p class="text-xl text-gray-300 leading-relaxed max-w-2xl">
                 I don't just write code; I secure it. As a cybersecurity student, I bridge the gap between 
                 <span class="text-white font-bold"> offensive security</span> (breaking things) and 
                 <span class="text-white font-bold"> full-stack engineering</span> (building things).
             </p>
             
+            {/* Stats */}
             <div class="flex gap-8 mt-8 border-t border-white/10 pt-8">
                 <div>
                     <span class="block text-4xl font-bold text-white mb-1">03+</span>
@@ -37,10 +61,13 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
 
-    {/* Split Content: Timeline vs Skills */}
-    <div class="grid md:grid-cols-2 gap-16">
+    {/* 3. SPLIT CONTENT (Journey vs Arsenal) */}
+    <div class="grid md:grid-cols-2 gap-12 relative">
         
-        {/* Left: Timeline */}
+        {/* Vertical Divider Line (Hidden on mobile) */}
+        <div class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gradient-to-b from-transparent via-indigo-500/50 to-transparent -translate-x-1/2"></div>
+
+        {/* Left: Journey */}
         <div>
             <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
                 <span class="w-8 h-1 bg-indigo-500 rounded-full"></span> Journey
@@ -63,26 +90,58 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
 
-        {/* Right: Skills Grid */}
+        {/* Right: Skills & Arsenal (New Card Style) */}
         <div>
             <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                <span class="w-8 h-1 bg-purple-500 rounded-full"></span> Tech Stack
+                <span class="w-8 h-1 bg-purple-500 rounded-full"></span> Skills & Arsenal
             </h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                    { name: "Rust & WASM", val: "85%", color: "bg-orange-500" },
-                    { name: "React & Astro", val: "95%", color: "bg-blue-500" },
-                    { name: "Python / AI", val: "80%", color: "bg-yellow-500" },
-                    { name: "Kali Linux", val: "90%", color: "bg-indigo-500" }
-                ].map(skill => (
-                    <div class="p-5 rounded-2xl bg-[#111] border border-white/5 hover:border-white/10 transition group">
-                        <h4 class="font-bold text-white mb-3">{skill.name}</h4>
-                        <div class="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                            <div class={`h-full ${skill.color} rounded-full`} style={`width: ${skill.val}`}></div>
-                        </div>
+            <div class="grid grid-cols-1 gap-4">
+                {/* OFFENSIVE */}
+                <div class="p-5 rounded-2xl bg-[#0f0f0f] border border-red-500/10 hover:border-red-500/30 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 rounded-lg bg-red-500/10 text-red-400 text-xl">⚔️</div>
+                        <h4 class="font-bold text-white text-lg">Offensive Ops</h4>
                     </div>
-                ))}
+                    <div class="flex flex-wrap gap-2">
+                        {["Penetration Testing", "Kali Linux", "Burp Suite", "Metasploit", "OWASP Top 10"].map(tag => (
+                            <span class="px-3 py-1 rounded bg-red-500/5 text-red-300 text-xs font-bold border border-red-500/10 hover:bg-red-500/10 transition">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* DEFENSIVE */}
+                <div class="p-5 rounded-2xl bg-[#0f0f0f] border border-blue-500/10 hover:border-blue-500/30 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400 text-xl">🛡️</div>
+                        <h4 class="font-bold text-white text-lg">Defensive Ops</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        {["SOC Analysis", "SIEM (Splunk)", "Incident Response", "Zero Trust", "Firewall Config"].map(tag => (
+                            <span class="px-3 py-1 rounded bg-blue-500/5 text-blue-300 text-xs font-bold border border-blue-500/10 hover:bg-blue-500/10 transition">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* DEV */}
+                <div class="p-5 rounded-2xl bg-[#0f0f0f] border border-purple-500/10 hover:border-purple-500/30 transition group">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 text-xl">💻</div>
+                        <h4 class="font-bold text-white text-lg">Full Stack Dev</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        {["React & Astro", "Rust (WASM)", "Python", "Node.js", "Docker"].map(tag => (
+                            <span class="px-3 py-1 rounded bg-purple-500/5 text-purple-300 text-xs font-bold border border-purple-500/10 hover:bg-purple-500/10 transition">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
             </div>
         </div>
 
